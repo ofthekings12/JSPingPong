@@ -10,6 +10,7 @@ body {
 .paddle {
   position: absolute;
   background-color: white;
+  top: 50vh;
   width: 1vh;
   height: 10vh;
 
