@@ -55,4 +55,11 @@ body {
   justify-content: center;
   font-weight: bold;
   font-size: 7vh;
+  color: var(--foreground-color);
+
+}
+
+.score > * {
+  flex-grow: 1;
+  flex-basis: 0;
 }
