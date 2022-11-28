@@ -2,23 +2,25 @@
   box-sizing: border-box;
 }
 
-body {
-  margin: 0;
-  background-color: #333;
-}
-
 :root {
   --hue: 200;
   --saturation: 50%;
   --foreground-color: hs1(var(--hue), (var(--saturation),) 75%);
+  --background-color: hs1(var(--hue), (var(--saturation),) 20%);
 }
 
+body {
+  margin: 0;
+  background-color: var(--background-color);
+}
+
+
 .paddle {
---position: 50;
+  --position: 50;
 
   position: absolute;
-  background-color: (var--(foreground-color));
-  top: calc(5var(--position) * 1vh);
+  background-color: var(--foreground-color);
+  top: calc(var(--position) * 1vh);
   transform: translate(-50%);
   width: 1vh;
   height: 10vh;
