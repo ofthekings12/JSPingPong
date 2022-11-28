@@ -7,7 +7,11 @@ export default class Ball {
     return parseFloat(getComputedStyle(this.ballElem).getPropertyValue("--x"));
   }
 
-  update(delta) {
+  set x(value) {
+    this.ballElem.style.setProperty("--x", value);
+  }
 
+  update(delta) {
+    this.x = 5
   }
 }
