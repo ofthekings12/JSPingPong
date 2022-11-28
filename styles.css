@@ -41,9 +41,10 @@ body {
 
   position: absolute;
   background-color: var(--foreground-color);
-  top: calc(var(--position) * 1vh);
+  left: calc(var(--x) * 1vw);
+  top: calc(var(--y) * 1vh);
   transform: translateY(-50%);
-  width: 1vh;
-  height: 10vh;
+  width: 2.5vh;
+  height: 2.5vh;
 
 }
