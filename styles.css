@@ -69,4 +69,5 @@ body {
 
 .score > :first-child {
   text-align: right;
+  border-right: .5vh solid var(--foreground-color);
 }
