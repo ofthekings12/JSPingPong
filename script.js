@@ -1,11 +1,10 @@
 // Update Loop (updates position and logic of all the pieces in the game)
 
-import Ball from './Ball.js';
+import Ball from '/Ball.js';
 
-const ball = new Ball(dovument.getElementbyId("ball"))
+const ball = new Ball(document.getElementById("ball"))
 
-let lastTime;
-
+let lastTime
 function update(time) {
   if (lastTime != null) {
     const delta = time - lastTime;
