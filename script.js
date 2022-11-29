@@ -1,5 +1,6 @@
 // Update Loop (updates position and logic of all the pieces in the game)
 import Ball from './Ball.js';
+import Paddle from './Paddle.js';
 
 const ball = new Ball(document.getElementById("ball"))
 const playerPaddle = new Paddle(document.getElementById("player-paddle"))
