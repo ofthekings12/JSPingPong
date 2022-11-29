@@ -12,6 +12,7 @@ function update(time) {
     const delta = time - lastTime;
     // Update Code
     // ball.update(delta)
+    computerPaddle.update(delta, ball.y)
   }
   
   lastTime = time;
@@ -21,6 +22,8 @@ function update(time) {
 document.addEventListener("mousemove", e => {
   playerPaddle.position = (e.y / window.innerHeight) * 100
 })
+
+
 
 window.requestAnimationFrame(update)
 
