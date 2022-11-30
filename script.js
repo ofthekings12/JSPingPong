@@ -1,49 +1,28 @@
-import Ball from './Ball.js';
-import Paddle from './Paddle.js';
-
-const ball = new Ball(document.getElementById("ball"))
-const playerPaddle = new Paddle(document.getElementById("player-paddle"))
-const computerPaddle = new Paddle(document.getElementById("computer-paddle"))
-const playerScoreElem = document.getElementById("player-score")
-const computerScoreElem = document.getElementById("computer-score")
-
-let lastTime;
-function update(time) {
-  if (lastTime != null) {
-    const delta = time - lastTime;
-    ball.update(delta, [playerPaddle.rect(), computerPaddle.rect()])
-    computerPaddle.update(delta, ball.y)
-    if (isLose()) handleLose()
-  }
-  
-  lastTime = time;
-  window.requestAnimationFrame(update)
+const gameBoard = document.querySelector("#game-board");
+const ctx = gameBoard.getContext("2d");
+const scoreText = document.querySelector("#score-text")
+const resetBtn = document.querySelector("#reset-btn")
+const gameWidth = gameBoard.width;
+const gameHeight = gameBoard.height;
+const boardBackground = "forestgreen"
+const paddle1Color = "lightblue"
+const paddle2Color = "red"
+const paddleBorder = "black";
+const ballColour = "yellow";
+const ballBorderColour = "black";
+const ballRadius = 12.5;
+const paddleSpeed = 50;
+let intervalId;
+let ballSpeed = 1;
+let ballX = gameWidth / 2;
+let ballY = gameHeight / 2;
+let ballXDirection = 0;
+let ballYDirection = 0;
+let player1Score = 0;
+let player2Score = 0;
+let paddle1 = {
+  width: 25, 
+  height:100,
+  x: 0,
+  y: 0,
 }
-
-function isLose() {
-  const rect = ball.rect();
-  return rect.right >= window.innerWidth || rect.left <= 0 
-
-}
-
-function handleLose() {
-  const rect = ball.rect()
-  if (rect.right >= window.innerWidth) {
-    playerScoreElem.textContent = parseInt(playerScoreElem.textContent) + 1;
-  } else {
-    computerScoreElem.textContent = parseInt(computerScoreElem.textContent) + 1;
-  }
-  ball.reset()
-  computerPaddle.reset()
-
-}
-
-document.addEventListener("mousemove", e => {
-  playerPaddle.position = (e.y / window.innerHeight) * 100
-})
-
-
-
-window.requestAnimationFrame(update)
-
-
