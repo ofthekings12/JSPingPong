@@ -38,14 +38,22 @@ window.addEventListener("keydown", changeDirection);
 resetBtn.addEventListener("click", resetGame)
 
 gameStart();
-drawPaddles()
 
 function gameStart() {
+  createBall();
+  nextTick();
 
 }
 
 function nextTick() {
-
+  intervalId = setTimeout(() => {
+    clearBoard();
+    drawPaddles();
+    moveBall();
+    drawBall(ballX, ballY);
+    checkCollision();
+    nextTick();
+  }, 10)
 }
 
 function clearBoard() {
@@ -71,7 +79,7 @@ function moveBall() {
 
 }
 
-function drawBall() {
+function drawBall(ballX, ballY) {
 
 }
 
