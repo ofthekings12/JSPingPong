@@ -4,11 +4,11 @@ const scoreText = document.querySelector("#score-text")
 const resetBtn = document.querySelector("#reset-btn")
 const gameWidth = gameBoard.width;
 const gameHeight = gameBoard.height;
-const boardBackground = "forestgreen"
-const paddle1Color = "lightblue"
-const paddle2Color = "red"
+const boardBackground = "black"
+const paddle1Color = "white"
+const paddle2Color = "white"
 const paddleBorder = "black";
-const ballColour = "yellow";
+const ballColour = "white";
 const ballBorderColour = "black";
 const ballRadius = 12.5;
 const paddleSpeed = 50;
@@ -57,7 +57,8 @@ function nextTick() {
 }
 
 function clearBoard() {
-
+  ctx.fillStyle = boardBackground;
+  ctx.fillRect(0, 0, gameWidth, gameHeight)
 }
 
 function drawPaddles() {
