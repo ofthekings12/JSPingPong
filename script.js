@@ -1,12 +1,12 @@
 const gameBoard = document.querySelector("#game-board");
 const ctx = gameBoard.getContext("2d");
-const scoreText = document.querySelector("#score-text")
-const resetBtn = document.querySelector("#reset-btn")
+const scoreText = document.querySelector("#score-text");
+const resetBtn = document.querySelector("#reset-btn");
 const gameWidth = gameBoard.width;
 const gameHeight = gameBoard.height;
-const boardBackground = "black"
-const paddle1Color = "white"
-const paddle2Color = "white"
+const boardBackground = "black";
+const paddle1Color = "white";
+const paddle2Color = "white";
 const paddleBorder = "black";
 const ballColour = "white";
 const ballBorderColour = "black";
@@ -21,28 +21,27 @@ let ballYDirection = 0;
 let player1Score = 0;
 let player2Score = 0;
 let paddle1 = {
-  width: 25, 
-  height:100,
+  width: 25,
+  height: 100,
   x: 0,
   y: 0,
-}
+};
 
 let paddle2 = {
-  width: 25, 
-  height:100,
+  width: 25,
+  height: 100,
   x: gameWidth - 25,
   y: gameHeight - 100,
-}
+};
 
 window.addEventListener("keydown", changeDirection);
-resetBtn.addEventListener("click", resetGame)
+resetBtn.addEventListener("click", resetGame);
 
 gameStart();
 
 function gameStart() {
   createBall();
   nextTick();
-
 }
 
 function nextTick() {
@@ -53,12 +52,12 @@ function nextTick() {
     drawBall(ballX, ballY);
     checkCollision();
     nextTick();
-  }, 10)
+  }, 10);
 }
 
 function clearBoard() {
   ctx.fillStyle = boardBackground;
-  ctx.fillRect(0, 0, gameWidth, gameHeight)
+  ctx.fillRect(0, 0, gameWidth, gameHeight);
 }
 
 function drawPaddles() {
@@ -72,44 +71,45 @@ function drawPaddles() {
   ctx.strokeRect(paddle2.x, paddle2.y, paddle2.width, paddle2.height);
 }
 
-function createBall() {
+function createBall() {}
 
-}
+function moveBall() {}
 
-function moveBall() {
+function drawBall(ballX, ballY) {}
 
-}
-
-function drawBall(ballX, ballY) {
-
-}
-
-function checkCollision() {
-
-}
+function checkCollision() {}
 
 function changeDirection(event) {
   const keyPressed = event.keyCode;
   const paddle1Up = 87;
   const paddle1Down = 83;
   const paddle2Up = 38;
-  const paddleDown = 40;
+  const paddle2Down = 40;
 
-  switch(keyPressed) {
-    case(paddle1Up):
-      paddle1.y -= paddleSpeed;
+  switch (keyPressed) {
+    case paddle1Up:
+      if (paddle1.y > 0) {
+        paddle1.y -= paddleSpeed;
+      }
       break;
-    case(paddle1Down):
-      paddle1.y += paddleSpeed;
+    case paddle1Down:
+      if (paddle1.y < gameHeight - paddle1.height) {
+        paddle1.y += paddleSpeed;
+      }
       break;
-
+    case paddle2Up:
+      if (paddle2.y > 0) {
+        paddle2.y -= paddleSpeed;
+      }
+      break;
+    case paddle2Down:
+      if (paddle2.y < gameHeight - paddle2.height) {
+        paddle2.y += paddleSpeed;
+      }
+      break;
   }
 }
 
-function updateScore() {
+function updateScore() {}
 
-}
-
-function resetGame() {
-
-}
+function resetGame() {}
