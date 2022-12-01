@@ -13,7 +13,7 @@ const ballBorderColour = "black";
 const ballRadius = 12.5;
 const paddleSpeed = 50;
 let intervalId;
-let ballSpeed = 1;
+let ballSpeed = .5;
 let ballX = gameWidth / 2;
 let ballY = gameHeight / 2;
 let ballXDirection = 0;
@@ -38,6 +38,11 @@ window.addEventListener("keydown", changeDirection);
 resetBtn.addEventListener("click", resetGame);
 
 gameStart();
+
+
+function gamePause() {
+  ballSpeed = 0;
+}
 
 function gameStart() {
   createBall();
@@ -175,6 +180,12 @@ function changeDirection(event) {
 function updateScore() {
   scoreText.textContent = `${player1Score} : ${player2Score}`;
 
+  if (player1Score === 10 || player2Score === 10) {
+    gamePause();
+    alert("GAME OVER")
+    resetGame();
+  }
+
 }
 
 function resetGame() {
@@ -193,7 +204,7 @@ function resetGame() {
     x: gameWidth - 25,
     y: gameHeight - 100,
   };
-  ballSpeed = 1;
+  ballSpeed = .5;
   ballX = 0;
   ballY = 0;
   ballXDirection = 0;
