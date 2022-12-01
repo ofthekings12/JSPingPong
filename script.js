@@ -130,6 +130,13 @@ function checkCollision() {
 
     }
    }
+   if (ballX >= (paddle2.x - ballRadius)) {
+    if (ballY > paddle2.y && ballY < paddle2.y + paddle2.height) {
+      ballXDirection *= -1;
+      ballSpeed += .5;
+
+    }
+   }
 }
 
 function changeDirection(event) {
