@@ -75,7 +75,16 @@ function createBall() {}
 
 function moveBall() {}
 
-function drawBall(ballX, ballY) {}
+function drawBall(ballX, ballY) {
+  ctx.fillStyle = ballColour;
+  ctx.strokeStyle = ballBorderColour;
+  ctx. lineWidth = 2;
+  ctx.beginPath();
+  ctx.arc(ballX, ballY, ballRadius, 0, 2 * Math.PI);
+  ctx.stroke();
+  ctx.fill();
+  
+}
 
 function checkCollision() {}
 
