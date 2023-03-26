@@ -2,6 +2,9 @@
 
 ## A simple, two-player, classic Pong game purely built with HTML, CSS, and Javascript.
 
+Play the game here!
+mikko-jspong.netlify.app
+
 Controls:
 Player 1:
 - Up = 'W'
